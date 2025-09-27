@@ -108,6 +108,58 @@ dist/
 A new deployment was triggered with the commit message "Re-trigger GitHub Pages deployment".
 Please check the [Actions tab](https://github.com/ashiii2121/delivery-app/actions) to monitor the deployment progress.
 
+## Additional Troubleshooting Steps
+
+If you're still experiencing 404 errors after the deployment has completed, please follow these additional steps:
+
+### 1. Verify GitHub Pages Settings
+
+1. Go to your repository settings: https://github.com/ashiii2121/delivery-app/settings
+2. Scroll down to the "Pages" section in the left sidebar
+3. Under "Source", make sure it's set to "GitHub Actions"
+4. If it's not set to "GitHub Actions", change it and save
+
+### 2. Check Deployment Status
+
+1. Go to the "Actions" tab: https://github.com/ashiii2121/delivery-app/actions
+2. Check if the latest workflow completed successfully
+3. If it failed, check the logs for error messages
+
+### 3. Verify Branch Protection (if applicable)
+
+1. In repository settings, check "Branches" section
+2. Make sure there are no branch protection rules preventing deployment
+
+### 4. Check Custom Domain Settings
+
+1. In the Pages settings, check if there's a custom domain configured
+2. If there is, verify it's correct or remove it temporarily for testing
+
+### 5. Force Rebuild
+
+If none of the above works, try triggering a rebuild:
+
+```bash
+cd delivery/frontend
+npm run build
+```
+
+Then commit and push a small change to trigger a new deployment.
+
+## Common Issues and Solutions
+
+### Issue: "There isn't a GitHub Pages site here"
+
+This typically means GitHub Pages isn't enabled for the repository or isn't configured to use GitHub Actions.
+
+### Issue: "404 File not found"
+
+This usually happens when:
+
+1. The build process failed
+2. The base path in vite.config.js doesn't match your repository name
+3. The routing configuration isn't working properly
+
 ## 🆘 Need Help?
 
 If you're still having issues:
@@ -116,3 +168,12 @@ If you're still having issues:
 2. Verify all files are correctly built in the `delivery/frontend/dist` directory
 3. Make sure the repository name matches the base path in `vite.config.js` (`/delivery-app/`)
 4. Ensure GitHub Pages is set to deploy from GitHub Actions in the [Pages settings](https://github.com/ashiii2121/delivery-app/settings/pages)
+
+## Need More Help?
+
+If you're still experiencing issues after following all these steps, please provide:
+
+1. A screenshot of your GitHub Pages settings
+2. The URL you're trying to access
+3. Any error messages from the browser console
+4. The deployment logs from the Actions tab

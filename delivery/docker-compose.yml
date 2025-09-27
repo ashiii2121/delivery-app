@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:5.0
+    container_name: zomato-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: zomato-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGODB_URI=mongodb://admin:password@mongodb:27017/zomato?authSource=admin
+      - JWT_SECRET=your-super-secret-jwt-key
+      - STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: zomato-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+volumes:
+  mongodb_data:

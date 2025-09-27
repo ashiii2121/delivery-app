@@ -1,0 +1,30 @@
+{
+  "name": "zomato-frontend",
+  "type": "module",
+  "private": true,
+  "version": "0.1.0",
+  "dependencies": {
+    "axios": "^1.5.0",
+    "lucide-react": "^0.544.0",
+    "react-router-dom": "^6.30.1",
+    "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.15",
+    "jsdom": "^22.1.0",
+    "postcss": "^8.4.29",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.0"
+  }
+}

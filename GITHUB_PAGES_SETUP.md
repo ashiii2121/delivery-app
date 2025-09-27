@@ -57,6 +57,20 @@ Before you begin, make sure that:
      git push
      ```
 
+### If the site shows "404 File not found" after navigation:
+
+1. **Verify 404.html file**:
+   - Ensure the `404.html` file exists in the `delivery/frontend/dist` directory
+   - Check that it contains the redirect script from [spa-github-pages](https://github.com/rafgraph/spa-github-pages)
+
+2. **Check the redirect script in index.html**:
+   - Verify that the built `index.html` file contains the redirect script
+   - The script should be added by the post-build process
+
+3. **Confirm base path configuration**:
+   - Check that `vite.config.js` has the correct base path: `/delivery-app/`
+   - This should match your repository name
+
 ## 📁 File Structure
 
 Your deployed site expects the following files in the root of the `delivery/frontend/dist` directory:
@@ -78,9 +92,15 @@ dist/
 4. The `index.html` file includes a script that processes this redirect information
 5. Your React application loads and handles the route correctly with React Router
 
+## 🔄 Recent Deployment Status
+
+A new deployment was triggered with the commit message "Re-trigger GitHub Pages deployment". 
+Please check the [Actions tab](https://github.com/ashiii2121/delivery-app/actions) to monitor the deployment progress.
+
 ## 🆘 Need Help?
 
 If you're still having issues:
 1. Check the [GitHub Actions workflow logs](https://github.com/ashiii2121/delivery-app/actions)
 2. Verify all files are correctly built in the `delivery/frontend/dist` directory
 3. Make sure the repository name matches the base path in `vite.config.js` (`/delivery-app/`)
+4. Ensure GitHub Pages is set to deploy from GitHub Actions in the [Pages settings](https://github.com/ashiii2121/delivery-app/settings/pages)

@@ -7,6 +7,18 @@
     <title>Zomato - Food Delivery App</title>
     <script type="module" crossorigin src="/delivery-app/assets/index.7d17ad53.js"></script>
     <link rel="stylesheet" href="/delivery-app/assets/index.f2caae4e.css">
+  
+<script type="text/javascript">
+  // Redirect script for GitHub Pages
+  // If there's a redirect path in the query string, replace the history entry
+  (function() {
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
   </head>
   <body>
     <div id="root"></div>

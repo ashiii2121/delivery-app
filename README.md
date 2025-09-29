@@ -165,6 +165,32 @@ STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key
    docker-compose down
    ```
 
+## 🌐 Deployment
+
+### 🌐 GitHub Pages Deployment
+
+This project is configured for automatic deployment to GitHub Pages using GitHub Actions:
+
+1. The frontend is automatically built and deployed to GitHub Pages on every push to the `main` branch
+2. The site will be available at: https://ashiii2121.github.io/delivery-app/
+
+To manually trigger a deployment:
+
+1. Go to the "Actions" tab in your GitHub repository
+2. Select the "Deploy Frontend to GitHub Pages" workflow
+3. Click "Run workflow"
+
+To enable GitHub Pages for the first time:
+
+1. Go to your repository's "Settings" tab
+2. Click on "Pages" in the left sidebar
+3. Under "Source", select "GitHub Actions"
+4. Click "Save"
+
+### 🐳 Render Deployment
+
+The backend is configured for deployment to Render. The configuration is in the `render.yaml` file.
+
 ## 🌐 API Endpoints
 
 ### 🔐 Authentication

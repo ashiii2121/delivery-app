@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build && node scripts/postbuild.js",
+    "build": "vite build",
+    "postbuild": "node scripts/postbuild.js",
     "preview": "vite preview"
   },
   "devDependencies": {
